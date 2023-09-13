@@ -10,8 +10,10 @@ app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+const uri = "mongodb+srv://hgoel246:E6KoEz63DPPbPrJ5@patients.u0jcafe.mongodb.net/?retryWrites=true&w=majority";
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/patients")
+  .connect(uri)
   .then(() => {
     console.log("Connected to mongo!!");
   })
